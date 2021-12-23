@@ -1,9 +1,11 @@
 const express=require('express')
 const path=require('path');
-const app=express();
 const hbs=require('hbs');
 const geoCode=require('./utils/geoCode')
 const forecast=require('./utils/forecast')
+
+const app=express();
+const port = process.env.PORT || 3000
 
 //Define paths for express config
 const publicDIR = path.join(__dirname,'../public')
@@ -81,6 +83,6 @@ app.get('*',(req,res)=>{
     res.render('404',{title:'404',error:'Page not found!'})
 });
 
-app.listen(3000,()=>{
-    console.log('Server is on port 3000')
+app.listen(port,()=>{
+    console.log('Server is on port',port)
 });
