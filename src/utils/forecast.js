@@ -12,7 +12,9 @@ const forecast=(a,b,callback)=>{
         else{
             const currentTemp=body.current.temperature
             const feelLikesTemp=body.current.feelslike
-            callback(undefined,`Weather is ${body.current.weather_descriptions[0]} and Temp is ${currentTemp} degree out but feels like ${feelLikesTemp} degree out.`)
+            const text=`Weather is ${body.current.weather_descriptions[0]} and Temp is ${currentTemp} degree out but feels like ${feelLikesTemp} degree out.
+                        The wind speed is ${body.current.wind_speed} and the humidity is ${body.current.humidity}%`
+            callback(undefined,text)
         }
     });
 };
